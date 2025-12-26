@@ -1,0 +1,8 @@
+blur = cv2.GaussianBlur(img, (7,7), 0)
+mask = img - blur
+sharp = img + mask
+
+plt.imshow(sharp, cmap="gray")
+plt.title("Unsharp Masking")
+plt.axis("off")
+plt.show()
