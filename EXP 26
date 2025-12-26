@@ -1,0 +1,6 @@
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+
+plt.imshow(opening, cmap="gray")
+plt.title("Opening")
+plt.axis("off")
+plt.show()
