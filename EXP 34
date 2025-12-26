@@ -1,0 +1,15 @@
+import cv2
+
+vehicle_cascade = cv2.CascadeClassifier("haarcascade_car.xml")  # Download if needed
+cap = cv2.VideoCapture("traffic.mp4")
+
+while True:
+    ret,f = cap.read()
+    if not ret: break
+    gray = cv2.cvtColor(f, cv2.COLOR_BGR2GRAY)
+    for x,y,w,h in vehicle_cascade.detectMultiScale(gray,1.1,2):
+        cv2.rectangle(f,(x,y),(x+w,y+h),(0,0,255),2)
+    cv2.imshow("Vehicle Detection", f)
+    if cv2.waitKey(30)==27: break
+
+cap.release(); cv2.destroyAllWindows()
