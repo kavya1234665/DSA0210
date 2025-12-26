@@ -1,0 +1,17 @@
+import cv2, numpy as np
+import matplotlib.pyplot as plt
+
+img = cv2.imread("lab4.png")
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+h, w = img.shape[:2]
+
+src = np.float32([[50,50],[300,50],[50,300],[300,300]])
+dst = np.float32([[10,100],[350,50],[100,350],[300,300]])
+
+H, _ = cv2.findHomography(src, dst)
+out = cv2.warpPerspective(img, H, (w, h))
+
+plt.imshow(out)
+plt.title("Homography")
+plt.axis("off")
+plt.show()
