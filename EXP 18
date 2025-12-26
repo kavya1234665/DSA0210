@@ -1,0 +1,8 @@
+kernel = np.array([[0,-1,0],[-1,4,-1],[0,-1,0]])
+lap = cv2.filter2D(img, -1, kernel)
+sharp = img + lap
+
+plt.imshow(sharp, cmap="gray")
+plt.title("Laplacian Positive Center")
+plt.axis("off")
+plt.show()
