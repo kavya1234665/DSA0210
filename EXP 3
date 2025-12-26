@@ -1,0 +1,26 @@
+import cv2
+
+cap = cv2.VideoCapture(0)   # Open the webcam
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    # Normal speed
+    cv2.imshow("Normal Video", frame)
+    cv2.waitKey(25)
+
+    # Slow motion
+    cv2.imshow("Slow Motion Video", frame)
+    cv2.waitKey(60)
+
+    # Fast motion
+    cv2.imshow("Fast Motion Video", frame)
+    cv2.waitKey(5)
+
+    if cv2.waitKey(1) == ord('q'):   # Press 'q' to exit
+        break
+
+cap.release()
+cv2.destroyAllWindows()
