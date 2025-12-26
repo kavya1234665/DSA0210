@@ -1,0 +1,8 @@
+img = cv2.imread("image.jpg")
+watermark = cv2.putText(img.copy(), "My Watermark", (30,50), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+
+plt.imshow(cv2.cvtColor(watermark, cv2.COLOR_BGR2RGB))
+plt.title("Watermark")
+plt.axis("off")
+plt.show()
