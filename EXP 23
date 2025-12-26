@@ -1,0 +1,8 @@
+img = cv2.imread("image.jpg")
+roi = img[50:200, 100:300]        # Crop region
+img[200:350, 50:250] = roi        # Paste inside same image
+
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.title("Crop & Paste")
+plt.axis("off")
+plt.show()
