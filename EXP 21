@@ -1,0 +1,15 @@
+import cv2, numpy as np, matplotlib.pyplot as plt
+
+img = cv2.imread("image.jpg", 0)
+
+# Simple gradient mask (Sobel like)
+kernel = np.array([[1, 0, -1],
+                   [1, 0, -1],
+                   [1, 0, -1]])
+grad = cv2.filter2D(img, -1, kernel)
+sharp = cv2.add(img, grad)   # sharpened image
+
+plt.imshow(sharp, cmap="gray")
+plt.title("Gradient Mask Sharpening")
+plt.axis("off")
+plt.show()
