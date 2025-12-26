@@ -1,0 +1,8 @@
+A = 1.5
+blur = cv2.GaussianBlur(img, (7,7), 0)
+highboost = cv2.addWeighted(img, A, blur, -1, 0)
+
+plt.imshow(highboost, cmap="gray")
+plt.title("High-Boost Sharpening")
+plt.axis("off")
+plt.show()
